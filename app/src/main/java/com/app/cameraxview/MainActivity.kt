@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
             "${storageDirectory.absoluteFile}/${System.currentTimeMillis()}_image.jpg"
 
         if (checkPermissions()) startCameraSession() else requestPermissions()
-
+        dialogbox()
         capture_image.setOnClickListener {
             captureImage(imageCaptureFilePath)
         }
@@ -120,15 +120,15 @@ class MainActivity : AppCompatActivity() {
 
                     closePreview.setOnClickListener(View.OnClickListener {
                         thumbnail?.setImageBitmap(null)
-                        camera_view.visibility = View.VISIBLE
-                        imagePreview?.visibility = View.GONE
-                        capture_image.visibility=View.VISIBLE
+                      showIconWhenAppIsNotShowingImage()
+                    })
+
+                    save_image.setOnClickListener(View.OnClickListener {
+                        Toast.makeText(this@MainActivity,"onImageSaved $imageCaptureFilePath",Toast.LENGTH_LONG).show()
                     })
                     // Run the operations in the view's thread
                     thumbnail?.post {
-                        camera_view.visibility = View.GONE
-                        imagePreview?.visibility = View.VISIBLE
-                        capture_image.visibility=View.GONE
+                      showIconWhenAppShowingImage()
                         // Remove thumbnail padding
                         thumbnail?.setPadding(resources.getDimension(R.dimen.stroke_small).toInt())
 
@@ -165,5 +165,18 @@ class MainActivity : AppCompatActivity() {
             .diskCacheStrategy(DiskCacheStrategy.NONE)
             .skipMemoryCache(true)
             .into(thumbnail!!)
+    }
+
+   fun showIconWhenAppShowingImage(){
+       save_image.visibility=View.VISIBLE
+       imagePreview?.visibility=View.VISIBLE
+       capture_image.visibility=View.GONE
+       camera_view.visibility=View.GONE
+   }
+    fun showIconWhenAppIsNotShowingImage(){
+        save_image.visibility=View.INVISIBLE
+        imagePreview?.visibility=View.GONE
+        capture_image.visibility=View.VISIBLE
+        camera_view.visibility=View.VISIBLE
     }
 }
