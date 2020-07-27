@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CameraX View</string>
+    <string name="capture_button_alt">Capture</string>
+
+</resources>
