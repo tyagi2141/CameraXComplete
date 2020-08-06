@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1084804325744",
+    "firebase_url": "https://camerxview.firebaseio.com",
+    "project_id": "camerxview",
+    "storage_bucket": "camerxview.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1084804325744:android:11f0de97803081de9dafb5",
+        "android_client_info": {
+          "package_name": "com.app.cameraxview"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1084804325744-er5trlcpo8jtknc10ga37a139srht4mp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYpW9reS56T7gxjHMRbcM0DL8tmbTU9k8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1084804325744-er5trlcpo8jtknc10ga37a139srht4mp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

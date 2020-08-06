@@ -10,15 +10,15 @@
         android:id="@+id/camera_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:lensFacing="back"
-        app:scaleType="centerCrop"
-        app:pinchToZoomEnabled="true"
         app:captureMode="mixed"
         app:flash="auto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent"
+        app:lensFacing="back"
+        app:pinchToZoomEnabled="true"
+        app:scaleType="centerCrop">
 
 
     </androidx.camera.view.CameraView>
@@ -26,64 +26,94 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_imagePreview"
-        android:visibility="invisible"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:src="@mipmap/ic_launcher"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/closeButton"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="16dp"
-            android:padding="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/ic_close"
+        <TextView
+            android:id="@+id/tv_location"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:hint="location"
+            android:textColor="#050202"
+            android:textSize="25dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/image_view"
-            android:textColor="#fff" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <ImageView
             android:id="@+id/image_view"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/closeButton"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="35dp"
             android:src="@drawable/ic_launcher_background"
-            android:layout_centerInParent="true"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_location" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ImageButton
-        android:id="@+id/capture_image"
-        android:layout_width="@dimen/round_button_large"
-        android:layout_height="@dimen/round_button_large"
-        android:layout_marginBottom="@dimen/shutter_button_margin"
-        android:scaleType="fitCenter"
-        android:background="@drawable/ic_shutter"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:contentDescription="@string/capture_button_alt" />
 
-    <ImageButton
-        android:id="@+id/save_image"
-        android:layout_width="@dimen/round_button_large"
-        android:layout_height="@dimen/round_button_large"
-        android:layout_marginBottom="@dimen/shutter_button_margin"
-        android:scaleType="fitCenter"
-        android:visibility="invisible"
-        android:background="@drawable/ic_save"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/camera_ui_container"
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent"
+        android:layoutDirection="ltr"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:contentDescription="@string/capture_button_alt" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <!-- Camera control and gallery buttons -->
+        <ImageButton
+            android:id="@+id/closeButton"
+            android:layout_width="@dimen/round_button_medium"
+            android:layout_height="@dimen/round_button_medium"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginBottom="@dimen/margin_xlarge"
+            android:background="@drawable/ic_shutter"
+            android:contentDescription="close"
+            android:padding="@dimen/spacing_small"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:srcCompat="@drawable/close" />
+
+        <ImageButton
+            android:id="@+id/capture_image"
+            android:layout_width="@dimen/round_button_large"
+            android:layout_height="@dimen/round_button_large"
+            android:layout_marginBottom="@dimen/shutter_button_margin"
+            android:background="@drawable/ic_shutter"
+            android:contentDescription="@string/capture_button_alt"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <ImageButton
+            android:id="@+id/save_image"
+            android:layout_width="@dimen/round_button_medium"
+            android:layout_height="@dimen/round_button_medium"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:layout_marginBottom="@dimen/margin_xlarge"
+            android:background="@drawable/ic_shutter"
+            android:contentDescription="save"
+            android:padding="@dimen/spacing_large"
+            android:scaleType="fitCenter"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:srcCompat="@drawable/ic_save" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

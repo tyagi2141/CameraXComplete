@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".PreviewActivity">
+
+    <ImageView
+        android:id="@+id/image_preview"
+        android:layout_width="match_parent"
+        android:scaleType="fitCenter"
+        android:layout_margin="5dip"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_launcher_background"
+        android:adjustViewBounds="true"
+        android:layout_height="300dp" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:padding="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/image_preview"
+        android:id="@+id/qrcode_value"
+        android:hint="NO QRCODE DATA" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:id="@+id/divider"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/qrcode_value"
+        android:background="#090808"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/divider"
+        android:id="@+id/bar_code_value"
+
+        android:hint="NO BARCODE DATA" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:id="@+id/divideliner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bar_code_value"
+        android:background="#090808"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/llcontainer"
+    android:orientation="vertical"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent">
+
+    <Button
+        android:id="@+id/btn_qrrcode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BARCODE SCAN" />
+
+    <Button
+        android:id="@+id/btn_camera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CAMERA X" />
+
+    <Button
+        android:id="@+id/view_data_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Data" />
+    <Button
+        android:id="@+id/btn_barcode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="QRCODE SCAN" />
+
+
+</LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
